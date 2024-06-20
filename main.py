@@ -8,7 +8,7 @@ import os
 def compute_psnr(original, processed):
     return tf.image.psnr(original, processed, max_val=1.0)
 
-enhancement_model = load_model('Models/model.h5', custom_objects={'psnr_metric': compute_psnr})
+enhancement_model = load_model('/denoising.h5', custom_objects={'psnr_metric': compute_psnr})
 
 def enhance_image_recursively(input_image, steps, initial_flag):
     if steps == 0:
